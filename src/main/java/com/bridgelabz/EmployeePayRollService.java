@@ -47,5 +47,24 @@ public class EmployeePayRollService {
         System.out.println("Delete Record SuccessFully");
     }
 
+    public void displayRecord() throws SQLException {
 
+        try {
+            String sql = "select * from empdetail";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSets = preparedStatement.executeQuery();
+            System.out.println("Id\t\t Emp_Name\t\t DOJ");
+
+            while (resultSets.next()) {
+
+                int id = resultSets.getInt("emp_id");
+                String name = resultSets.getString("emp_name");
+                String doj = resultSets.getString("emp_doj");
+                System.out.println(id + "\t\t" + name + "\t\t" + doj);
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 }

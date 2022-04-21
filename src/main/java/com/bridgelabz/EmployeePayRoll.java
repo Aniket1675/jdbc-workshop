@@ -21,13 +21,13 @@ public class EmployeePayRoll {
         while (choice != EXIT) {
             System.out.println();
             System.out.println(
-                    "Enter Your Choice: \n 1. Insert Record ");
+                    "Enter Your Choice: \n 1.Insert Record\n 2.Delete Record\n 3.Display Record\n 4.Exit\n");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     System.out.println("Enter name you want to insert");
                     String name = scanner.next();
-                    System.out.println("Enter date you want to insert");
+                    System.out.println("Enter joining date");
                     String date = scanner.next();
                     employeePayRollService.insertData(name, Date.valueOf(date));
                     break;
@@ -36,6 +36,13 @@ public class EmployeePayRoll {
                     System.out.println("Enter name you want to delete");
                     String empName = scanner.next();
                     employeePayRollService.deleteData(empName);
+                    break;
+
+                case 3:
+                    employeePayRollService.displayRecord();
+                    break;
+                case  4 :
+                    System.out.println("Exit");
                     break;
 
             }
