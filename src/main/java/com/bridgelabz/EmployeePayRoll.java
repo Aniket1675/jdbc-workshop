@@ -32,6 +32,12 @@ public class EmployeePayRoll {
                     employeePayRollService.insertData(name, Date.valueOf(date));
                     break;
 
+                case 2:
+                    System.out.println("Enter name you want to delete");
+                    String empName = scanner.next();
+                    employeePayRollService.deleteData(empName);
+                    break;
+
             }
         }
 

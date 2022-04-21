@@ -38,7 +38,13 @@ public class EmployeePayRollService {
         {
             e.printStackTrace();
         }
-
+    }
+    public void deleteData(String name) throws SQLException {
+        String delete = "delete from empdetail where emp_name = ? ";
+        PreparedStatement preparedStatement = connection.prepareStatement(delete);
+        preparedStatement.setString(1, name);
+        preparedStatement.executeUpdate();
+        System.out.println("Delete Record SuccessFully");
     }
 
 
